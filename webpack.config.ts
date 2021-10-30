@@ -11,6 +11,10 @@ const config: webpack.Configuration = {
   output: {
     filename: "app.bundle.js",
     chunkFilename: "chunk-[name].bundle.js",
+    path: path.resolve(
+      __dirname,
+      process.env.NODE_ENV === "production" ? "docs" : "dist",
+    ),
   },
   plugins: [
     new HtmlWebpackPlugin({
